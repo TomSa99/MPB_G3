@@ -160,7 +160,7 @@ def estimate(params):
     r = ode(model).set_integrator('lsoda', method='bdf', lband=0, nsteps=5000)  # lband é o limite inferior -- para nao haver valores negativos
     r.set_initial_value(y0, t0).set_f_params(params)
 
-    Y = [[1, 0, 0, 0, 3]] #variavel Y com os dados iniciais
+    Y = [[4, 0, 0, 0, 5]] #variavel Y com os dados iniciais
 
     while r.successful() and r.t < t:
         time = r.t + dt
@@ -227,8 +227,8 @@ print(for_real)
 print('Os mínimos encontrados são {}.'.format(param_est))
 
 #redefinir os parametros para os minimos estimados
-k4 = param_est[0]
-umax2 = param_est[1]
+k3 = param_est[0]
+umax3 = param_est[1]
 Ks3 = param_est[2]
 
 #lista com os parametros fornecida a func
